@@ -17,6 +17,7 @@ class CommandeVideException implements Exception {
   String toString() => 'CommandeVideException: $message';
 }
 
+
 class Produit {
   // Attributs requis
   String nom;
@@ -34,6 +35,7 @@ class Produit {
     required this.categorie,
   });
   
+  //List<Produit> catalogueProduits=[];
   /**
    * Méthode pour afficher les détails du produit
    */
@@ -45,7 +47,7 @@ class Produit {
     print('---');
   }
 }
-
+List<Produit> catalogueProduits=[];
 class ProduitCommande {
   Produit produit;
   int quantite;
@@ -53,32 +55,30 @@ class ProduitCommande {
   ProduitCommande(this.produit, this.quantite);
 }
  
-
+Produit? RechercherProduitParNom(String nom) {
+  try {
+    return catalogueProduits.firstWhere(
+      (produit) => produit.nom.toLowerCase() == nom.toLowerCase()
+    );
+  } catch (e) {
+    return null; // Produit non trouvé
+  }
+}
+void afficherTousLesProduits() {
+  print('=== CATALOGUE DES PRODUITS ===');
+  
+  catalogueProduits.forEach((produit) => produit.afficherDetails());
+   }
 void main() {  
-    Produit iphone = Produit(
-      nom: 'iPhone 15',
-      prix: 8000.0,
-      stock: 5,
-      categorie: 'Phone'
-    );
-    
-    Produit souris = Produit(
-      nom: 'Souris Gaming',
-      prix: 150.0,
-      stock: 10,
-      categorie: 'Accessoire'
-    );
-    
-    Produit imprimante = Produit(
-      nom: 'imprimante thermique',
-      prix: 2900.0,
-      stock: 8,
-      categorie: 'imprimante'
-    );
+    catalogueProduits.addAll([
+      Produit(nom: 'iPhone 15', prix: 8000.0, stock: 5, categorie: 'Phone'),
+      Produit(nom: 'Samsung Galaxy', prix: 6500.0, stock: 3, categorie: 'Phone'),
+      Produit(nom: 'MacBook Pro', prix: 15000.0, stock: 2, categorie: 'Laptop'),
+      Produit(nom: 'Souris', prix: 25.0, stock: 10, categorie: 'Accessoire'),
+      Produit(nom: 'Clavier', prix: 75.0, stock: 8, categorie: 'Accessoire'),
+    ]);
     
     print('✅ Produits créés avec succès');
-    iphone.afficherDetails();
-    souris.afficherDetails();
-    imprimante.afficherDetails();
+    afficherTousLesProduits;
     
   }
