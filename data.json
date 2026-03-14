@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "Nom": "IPHONE",
+      "Prix": 15000,
+      "stock": 10,
+      "Categorie": "téléphone"
+    },
+    {
+      "Nom": "hp laser",
+      "Prix": 3000,
+      "stock": 4,
+      "Categorie": "imprimante"
+    },
+    {
+      "Nom": "hp laser",
+      "Prix": 3000,
+      "stock": 50,
+      "Categorie": "imprimante"
+    },
+    {
+      "Nom": "DELL",
+      "Prix": 3000,
+      "stock": 50,
+      "Categorie": "Ordinateur"
+    },
+    {
+      "Nom": "HP",
+      "Prix": 3000,
+      "stock": 50,
+      "Categorie": "Ordinateur"
+    }
+  ],
+  "orders": [
+    {
+      "product": "hp laser",
+      "Quantity": 5
+    },
+    {
+      "product": "IPHONE",
+      "Quantity": 2
+    },
+    {
+      "product": "Ordinateur",
+      "Quantity": 5
+    },
+    {
+      "product": "IPHONE",
+      "Quantity": 2
+    }
+  ]
+}
