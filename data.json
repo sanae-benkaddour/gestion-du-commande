@@ -47,6 +47,10 @@
     {
       "product": "IPHONE",
       "Quantity": 2
+    },
+    {
+      "product": "PC",
+      "Quantity": 2
     }
   ]
 }
